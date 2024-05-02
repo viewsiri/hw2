@@ -77,12 +77,99 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
+
 # Generate models and tables, according to the domain model.
 # TODO!
+
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+studio = Studio.new
+studio["name"] = "Warner Bros."
+studio.save
+
+batman = Studio.find_by({"name" => "Warner Bros."})
+
+movie = Movie.new
+movie["title"] = "Batman Begins"
+movie["year_released"] = 2005
+movie["MPAA"] = "PG-13"
+movie["studio_id"] = batman["id"]
+movie.save
+
+darkknight = Studio.find_by({"name" => "Warner Bros."})
+
+movie = Movie.new
+movie["title"] = "The Dark Knight"
+movie["year_released"] = 2008
+movie["MPAA"] = "PG-13"
+movie["studio_id"] = darkknight["id"]
+movie.save
+
+darkknightrises = Studio.find_by({"name" => "Warner Bros."})
+
+movie = Movie.new
+movie["title"] = "The Dark Knight Rises"
+movie["year_released"] = 2012
+movie["MPAA"] = "PG-13"
+movie["studio_id"] = darkknightrises["id"]
+movie.save
+
+actor = Actor.new
+actor["name"] = "Christian Bale"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Michael Caine"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Liam Neeson"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Katie Holmes"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Gary Oldman"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Heath Ledger"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Aaron Eckhart"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Maggie Gyllenhaal"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Tom Hardy"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Joseph Gordon-Levitt"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Anne Hathaway"
+actor.save
+
+# ?
+# role = Role.new
+# role[movie_id] = 
+# role[actor_id] = 
+# role[character]
 
 # Prints a header for the movies output
 puts "Movies"
@@ -92,6 +179,16 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+moviesall = Movie.all
+
+for movies in moviesall
+    movie_title = movies["title"]
+    movie_year = movies["year_released"]
+    movie_mpaa = movies["mpaa"]
+    # movie_studio = movies["studio"]???
+    puts "#{movie_title} #{movie_year} #{movie_mpaa} #{movie_studio})"
+end
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -100,3 +197,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+rolesall = Role.all
+
+for roles in rolesall 
+    # role_movie = roles["movie_id"]?
+    # role_actor = roles["actor_id"]?
+    role_character = roles["character"]
+    puts "#{role_movie} #{role_actor} #{role_character})"
+end
