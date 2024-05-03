@@ -102,7 +102,7 @@ studio = Studio.new
 studio["name"] = "Warner Bros."
 studio.save
 
-puts "There are #{Studio.all.count} studios"
+# puts "There are #{Studio.all.count} studios"
 
 batman = Studio.find_by({"name" => "Warner Bros."})
 movie = Movie.new
@@ -172,7 +172,7 @@ actor = Actor.new
 actor["name"] = "Anne Hathaway"
 actor.save
 
-puts "There are #{Actor.all.count} actors"
+# puts "There are #{Actor.all.count} actors"
 
 batman = Movie.find_by({"title" => "Batman Begins"})
 christian_bale = Actor.find_by({"name" => "Christian Bale"})
@@ -294,7 +294,7 @@ role["actor_id"] = anne_hathaway["id"]
 role["character"] = "Selina Kyle"
 role.save
 
-puts "There are #{Role.all.count} roles"
+# puts "There are #{Role.all.count} roles"
 
 # Prints a header for the movies output
 puts "Movies"
